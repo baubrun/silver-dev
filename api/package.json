@@ -4,7 +4,7 @@
   "description": "Example API server",
   "private": true,
   "scripts": {
-    "start": "DEBUG=api ts-node-dev -- ./src/index.ts",
+    "start": "cross-env DEBUG=api ts-node-dev -- ./src/index.ts",
     "test": "node -e \"console.log('No tests yet!')\"",
     "lint": "eslint 'src/**/*.{js,ts}'",
     "prettier": "prettier --config .prettierrc.json --list-different 'src/**/*.{ts,tsx}'",
@@ -12,6 +12,7 @@
   },
   "dependencies": {
     "cors": "^2.8.5",
+    "cross-env": "^7.0.3",
     "debug": "^4.3.2",
     "dotenv-flow": "^3.2.0",
     "errorhandler": "^1.5.1",
