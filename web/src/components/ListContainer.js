@@ -42,10 +42,18 @@ const ListContainer = () => {
     return <div>...loading</div>;
   }
   return (
-    <>
-      <PostList items={posts} onClick={onSelectItem} selectedId={selectedId} />
-      <AuthorsList items={posts} />
-    </>
+    <div className="row">
+      <div className="column">
+        <PostList
+          items={posts}
+          onClick={onSelectItem}
+          selectedId={selectedId}
+        />
+      </div>
+      <div className="column">
+        <AuthorsList items={posts} />
+      </div>
+    </div>
   );
 };
 

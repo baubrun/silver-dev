@@ -1,11 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import { sorter } from '../helpers';
 import moment from 'moment';
-import ReactMarkdown from 'react-markdown';
 
 const PostList = (props) => {
   const [postItems, setPostItems] = useState([]);
-  const { items, onClick, selectedId } = props;
+  const { items, onClick } = props;
 
   const handleListItemClick = (id) => {
     onClick(id);
@@ -20,9 +19,9 @@ const PostList = (props) => {
     return <div>No Authors</div>;
   }
 
-  const listItems = (item) => {
+  const ListItems = ({ item }) => {
     return (
-      <div key={item?.id}>
+      <div>
         <div className="title" onClick={() => handleListItemClick(item?.id)}>
           <h2>Title: {`${item?.title}`}</h2>
         </div>
@@ -39,12 +38,7 @@ const PostList = (props) => {
   };
 
   return postItems?.map((item, idx) => {
-    if (selectedId === item?.id) {
-      return <ReactMarkdown key={idx} children={listItems(item)} />;
-      // return <div key={idx}>allo</div>;
-    } else {
-      return listItems(item);
-    }
+    return <ListItems key={idx} item={item} />;
   });
 };
 
