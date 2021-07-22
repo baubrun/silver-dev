@@ -6,10 +6,6 @@ const PostList = (props) => {
   const [postItems, setPostItems] = useState([]);
   const { items, onClick } = props;
 
-  const handleListItemClick = (id) => {
-    onClick(id);
-  };
-
   useEffect(() => {
     const sortedAuthors = sorter(items, 'publishedAt', 'desc');
     setPostItems(sortedAuthors);
@@ -18,6 +14,9 @@ const PostList = (props) => {
   if (postItems.length < 1) {
     return <div>No Authors</div>;
   }
+  const handleListItemClick = (id) => {
+    onClick(id);
+  };
 
   const ListItems = ({ item }) => {
     return (
